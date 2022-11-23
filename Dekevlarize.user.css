@@ -1,0 +1,380 @@
+/* ==UserStyle==
+@name           Dekevlarize
+@namespace      aubymori
+@version        0.1.0
+@description    Makes YouTube look how it did in 2016/2017
+@author         Aubrey P.
+@preprocessor   less
+==/UserStyle== */
+
+@-moz-document domain("www.youtube.com") {
+    .yt-card() {
+        background: #fff;
+        box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+    }
+    
+    yt-interaction, paper-ripple, tp-yt-paper-tooltip.ytd-channel-name {
+        display: none !important;
+    }
+    
+    ytd-app {
+        background: #f1f1f1;
+    }
+    
+    #title.ytd-watch-metadata,
+    #top-row.ytd-watch-metadata,
+    #bottom-row.ytd-watch-metadata {
+        .yt-card();
+    }
+    
+    #title.ytd-watch-metadata {
+        padding: 15px 15px 0 15px;
+        position: relative;
+        overflow: visible;
+    }
+    
+    #top-row.ytd-watch-metadata {
+        margin-bottom: 10px;
+        display: flex !important;
+        padding: 0 15px 5px 15px;
+        flex-direction: column;
+        position: relative;
+    }
+    
+    #bottom-row.ytd-watch-metadata {
+        margin-right: 0;
+        padding: 15px 15px 0 15px;
+    }
+    
+    #description.ytd-watch-metadata {
+        margin: 0;
+    }
+    
+    #info.ytd-watch-metadata {
+        font-size: 13px;
+        line-height: 14px;
+        color: #333;
+        
+        span:not(:last-child) {
+            display: none;
+        }
+    }
+    
+    #description-inline-expander.ytd-watch-metadata {
+        font-size: 13px;
+        line-height: 14px;
+        color: #333;
+        overflow: visible;
+        
+        #expand.ytd-text-inline-expander,
+        #collapse.ytd-text-inline-expander {
+            left: 0 !important;
+            width: 100%;
+            border: 1px solid #e2e2e2;
+            border-width: 1px 0 0;
+            border-radius: 0;
+            height: 28px;
+            text-transform: uppercase;
+            font-size: 11px;
+            color: #767676;
+            
+            &:hover {
+                color: #222;
+            }
+        }
+        
+        #snippet.ytd-text-inline-expander {
+            margin-bottom: 46px;
+        }
+        
+        
+        yt-attributed-string:not([hidden]) + yt-formatted-string + #snippet.ytd-text-inline-expander {
+            display: none;
+        }
+    }
+    
+    .yt-core-attributed-string__link {
+        color: #333 !important;
+        
+        &:hover {
+            text-decoration: underline !important;
+        }
+        
+        #bottom-row.ytd-watch-metadata:hover & {
+            color: #167ac6 !important;
+        }
+    }
+    
+    
+    h1.ytd-watch-metadata {
+        font-family: "Roboto", Arial, sans-serif;
+        font-weight: 400;
+        line-height: normal;
+    }
+    
+    #owner.ytd-watch-metadata {
+        margin: 15px 0 10px;
+        min-height: 48px;
+        position: relative;
+        align-items: flex-end;
+    }
+    
+    #avatar.ytd-video-owner-renderer {
+        margin: 0 !important;
+        
+        &, img {
+            width: 48px !important;
+            height: 48px !important;
+            border-radius: 0;
+        }
+    }
+    
+    .yt-simple-endpoint.ytd-video-owner-renderer {
+        display: block;
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    #channel-name.ytd-video-owner-renderer {
+        position: absolute;
+        top: 0;
+        left: 58px;
+        font-size: 13px;
+        line-height: normal;s
+        color: #333;
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+    
+    #subscribe-button.ytd-watch-metadata {
+        order: -1;
+        margin-left: 58px;
+        margin-bottom: 2px;
+    }
+    
+    tp-yt-paper-button.ytd-subscribe-button-renderer {
+        margin: 0;
+        padding: 0 7px 0 5.5px;
+        height: 24px;
+        font-weight: 400;
+        font-size: 12px;
+        text-transform: none;
+        border-radius: 2px 0 0 2px;
+        
+        background: #f00;
+        
+        &:hover {
+            background: #d90a17;
+        }
+        
+        &:active {
+            background: #a60812;
+        }
+        
+        &::before {
+            content: "";
+            display: inline-block;
+            background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-vfllYIUv0.png) -48px -775px;
+            width: 16px;
+            height: 12px;
+            vertical-align: middle;
+            margin-right: 6px;
+        }
+    }
+    
+    #owner-sub-count.ytd-video-owner-renderer {
+        display: block !important;
+        margin-bottom: 2px;
+        height: 22px;
+        max-height: none !important;
+        line-height: 24px !important;
+        padding: 0 6px 0 7px;
+        background: #fafafa;
+        border: 1px solid #ccc;
+        border-left: 0;
+        border-radius: 0 2px 2px 0;
+        font-size: 11px !important;
+        color: #737373 !important;
+    }
+    
+    #actions.ytd-watch-metadata {
+        margin: 0;
+        padding-top: 5px;
+        border-top: 1px solid #e2e2e2;
+        justify-content: flex-start !important;
+    }
+    
+    #actions-inner.ytd-watch-metadata {
+        width: 100%;
+    }
+    
+    ytd-menu-renderer.ytd-watch-metadata {
+        width: 100%;
+        
+        .top-level-buttons {
+            width: calc(100% + 12px) !important;
+            margin-left: -10px;
+            margin-right: -2px;
+            
+            & > :not(ytd-toggle-button-renderer) {
+                order: -1;
+            }
+
+            ytd-toggle-button-renderer {
+                padding-right: 2px;
+                
+                &:first-of-type {
+                    margin-left: auto !important;
+                }
+            }
+            
+            & > * {
+                padding: 0 10px;
+                margin: 0 !important;
+                height: 28px;
+                line-height: 28px;
+                user-select: none;
+                
+                yt-icon, #text {
+                    opacity: .5;
+                }
+                
+                &:hover {
+                    yt-icon, #text {
+                        opacity: .6;
+                    }
+                }
+                
+                &:active {
+                    yt-icon, #text {
+                        opacity: .8;
+                    }
+                }
+                
+                &.style-default-active {
+                    yt-icon, #text {
+                        opacity: .8;
+                    }
+                    
+                    &:hover {
+                        yt-icon, #text {
+                            opacity: 1;
+                        }
+                    }
+                }
+                
+                a {
+                    padding: 0 !important;
+                }
+                
+                yt-icon-button {
+                    padding: 0;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 6px;
+                    
+                    yt-icon {
+                        color: #000;
+                    }
+                }
+                
+                #text {
+                    color: #000 !important;
+                    font-size: 11px;
+                }
+            }
+            
+            & > ytd-button-renderer {
+                &:nth-of-type(1) {
+                    yt-icon {
+                        color: #0000;
+                        background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-vfllYIUv0.png) -151px -725px;
+                    }
+                }
+                
+                &:nth-of-type(2) {
+                    yt-icon {
+                        color: #0000;
+                        background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-vfllYIUv0.png) -267px -824px;
+                    }
+                }
+                
+                &:nth-of-type(3) {
+                    yt-icon {
+                        color: #0000;
+                        background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-vfllYIUv0.png) -154px -860px;
+                    }
+                }
+            }
+            
+            & > ytd-toggle-button-renderer {
+                &:nth-of-type(1) {
+                    yt-icon {
+                        color: #0000;
+                        background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-vfllYIUv0.png) 0 -867px;
+                    }
+                    
+                    &.style-default-active {
+                        yt-icon {
+                            background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-vfllYIUv0.png) -79px -278px;
+                        }
+                        
+                        #text {
+                            color: #167ac6 !important;
+                        }
+                    }
+                }
+                
+                &:nth-of-type(2) {
+                    yt-icon {
+                        color: #0000;
+                        background: no-repeat url(//s.ytimg.com/yts/imgbin/www-hitchhiker-vfllYIUv0.png) -174px -804px;
+                    }
+                }
+            }
+        }
+    }
+    
+    #original-info.ytd-watch-metadata {
+        display: block !important;
+        position: absolute;
+        top: 82px;
+        right: 15px;
+        z-index: 999;
+        margin-top: 0;
+        line-height: 24px;
+        max-height: 24px;
+        text-align: right;
+        font-size: 19px;
+        color: #666;
+        
+        & > span {
+            font-weight: 400;
+            
+            &:not(:first-child) {
+                display: none;
+            }
+        }
+    }
+    
+    #sentiment.ytd-watch-metadata {
+        padding: 0;
+        position: absolute;
+        top: 76px;
+        right: 15px;
+        width: 160px !important;
+    }
+    
+    #container.ytd-sentiment-bar-renderer {
+        background: #ccc;
+    }
+    
+    #like-bar.ytd-sentiment-bar-renderer {
+        background: #167ac6;
+    }
+}
